@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Images\Locations\Firecamp.png" />
+	  <None Remove="Images\Locations\Oasis.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Images\Locations\Firecamp.png" />
+	  <Resource Include="Images\Locations\Oasis.png" />
+	</ItemGroup>
+
+</Project>
