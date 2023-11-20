@@ -1,5 +1,6 @@
 ﻿using Engine.Factories;
-using Engine.Models;
+using Engine.Models.General;
+using Engine.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Controllers.Session
 {
-	public class Session : INotifyPropertyChanged
+	public class Session : NotificationClass
 	{
 		// Backing variables
 		private LocationModel _location;
@@ -51,8 +52,7 @@ namespace Engine.Controllers.Session
 		public Session()
 		{
 			// Current world
-			WorldFactory worldFactory = new();
-			World = worldFactory.GenerateWorld();
+			World = WorldFactory.GenerateWorld();
 
 			// Current player
 			Player = new()
@@ -76,13 +76,9 @@ namespace Engine.Controllers.Session
 		}
 
 		// Movement controls
-		public void MoveNorth() { Location = World.GetLocationAt(Location.XCoordinate, Location.YCoordinate + 1); }
-		public void MoveEast() { Location = World.GetLocationAt(Location.XCoordinate + 1, Location.YCoordinate); }
-		public void MoveSouth() { Location = World.GetLocationAt(Location.XCoordinate, Location.YCoordinate - 1); }
-		public void MoveWest() { Location = World.GetLocationAt(Location.XCoordinate - 1, Location.YCoordinate); }
-
-		// Interface
-		public event PropertyChangedEventHandler? PropertyChanged;
-		protected virtual void OnPropertyChanged(string propertyName) { PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); }
+		public void MoveNorth() { if (HasLocationToNorth) Location = World.GetLocationAt(Location.XCoordinate, Location.YCoordinate + 1); }
+		public void MoveEast() { if (HasLocationToEast) Location = World.GetLocationAt(Location.XCoordinate + 1, Location.YCoordinate); }
+		public void MoveSouth() { if (HasLocationToSouth) Location = World.GetLocationAt(Location.XCoordinate, Location.YCoordinate - 1); }
+		public void MoveWest() { if (HasLocationToWest) Location = World.GetLocationAt(Location.XCoordinate - 1, Location.YCoordinate); }
 	}
 }

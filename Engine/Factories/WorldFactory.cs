@@ -1,4 +1,4 @@
-﻿using Engine.Models;
+﻿using Engine.Models.General;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Engine.Factories
 {
-	internal class WorldFactory
+    internal static class WorldFactory
 	{
-		internal WorldModel GenerateWorld()
+		internal static WorldModel GenerateWorld()
 		{
 			WorldModel world = new();
 

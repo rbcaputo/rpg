@@ -44,4 +44,8 @@
 	  <Resource Include="Images\Locations\4,0.png" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Models\Weapons\" />
+	</ItemGroup>
+
 </Project>

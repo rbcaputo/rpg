@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Engine.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Engine.Models
+namespace Engine.Models.General
 {
-	public class PlayerModel : INotifyPropertyChanged
+	public class PlayerModel : NotificationClass
 	{
 		// Backing variables
 		private int _level;
@@ -22,7 +23,9 @@ namespace Engine.Models
 		private int _charisma;
 
 		private int _maxLife;
+		private int _currentLife;
 		private int _maxMana;
+		private int _currentMana;
 
 		// General
 		public string Name { get; set; } = string.Empty;
@@ -122,6 +125,15 @@ namespace Engine.Models
 				OnPropertyChanged(nameof(MaxLife));
 			}
 		}
+		public int CurrentLife
+		{
+			get { return _currentLife; }
+			set
+			{
+				_currentLife = value;
+				OnPropertyChanged(nameof(CurrentLife));
+			}
+		}
 		public int MaxMana
 		{
 			get { return _maxMana; }
@@ -131,9 +143,14 @@ namespace Engine.Models
 				OnPropertyChanged(nameof(MaxMana));
 			}
 		}
-
-		// Interface
-		public event PropertyChangedEventHandler? PropertyChanged;
-		protected virtual void OnPropertyChanged(string propertyName) { PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); }
+		public int CurrentMana
+		{
+			get { return _currentMana; }
+			set
+			{
+				_currentMana = value;
+				OnPropertyChanged(nameof(CurrentMana));
+			}
+		}
 	}
 }

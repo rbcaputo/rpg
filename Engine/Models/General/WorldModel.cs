@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Engine.Models
+namespace Engine.Models.General
 {
 	public class WorldModel
 	{
@@ -27,7 +27,7 @@ namespace Engine.Models
 
 		public LocationModel GetLocationAt(int xCoordinate, int yCoordinate)
 		{
-			foreach(LocationModel location in _locations) { if (location.XCoordinate == xCoordinate && location.YCoordinate == yCoordinate) return location; }
+			foreach (LocationModel location in _locations) { if (location.XCoordinate == xCoordinate && location.YCoordinate == yCoordinate) return location; }
 
 			return null;
 		}
