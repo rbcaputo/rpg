@@ -14,9 +14,9 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="250"/>
+			<ColumnDefinition Width="250px"/>
 			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="250"/>
+			<ColumnDefinition Width="250px"/>
 		</Grid.ColumnDefinitions>
 		<Label Grid.Row="0" Grid.Column="0" Content="Menu"/>
 
@@ -24,8 +24,8 @@
 		<Grid Grid.Row="1" Grid.Column="0">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 			<Label Grid.Row="0" Grid.Column="0" Content="CHARACTER" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 			<TabControl Grid.Row="1" Grid.Column="0">
@@ -77,7 +77,6 @@
 						<Label Grid.Row="10" Grid.Column="1" Content="{ Binding Player.Charisma }"/>
 					</Grid>
 				</TabItem>
-
 				<!-- Character: Skills tab -->
 				<TabItem Header="Skills"/>
 
@@ -124,7 +123,7 @@
 		<!-- World grid -->
 		<Grid Grid.Row="1" Grid.Column="1">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 			<Label Grid.Row="0" Grid.Column="0" Content="WORLD" FontWeight="Bold" HorizontalContentAlignment="Center"/>
@@ -140,6 +139,36 @@
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<Label Grid.Row="0" Grid.ColumnSpan="2" Content="ACTIONS" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+				
+				<!-- Movement grid -->
+				<Grid Grid.Row="1" Grid.Column="1">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Label Grid.Row="0" Grid.ColumnSpan="7" Content="MOVEMENT" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+
+					<Button Grid.Row="3" Grid.Column="3" Content="N" Click="MoveNorth" IsEnabled="{ Binding HasLocationToNorth }"/>
+					<Button Grid.Row="4" Grid.Column="4" Content="E" Click="MoveEast" IsEnabled="{ Binding HasLocationToEast }"/>
+					<Button Grid.Row="5" Grid.Column="3" Content="S" Click="MoveSouth" IsEnabled="{ Binding HasLocationToSouth }"/>
+					<Button Grid.Row="4" Grid.Column="2" Content="W" Click="MoveWest" IsEnabled="{ Binding HasLocationToWest }"/>
+				</Grid>
 			</Grid>
 		</Grid>
 
@@ -148,7 +177,7 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="250px"/>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>

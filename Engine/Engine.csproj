@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net7.0-windows</TargetFramework>
@@ -7,13 +7,41 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Images\Locations\Firecamp.png" />
-	  <None Remove="Images\Locations\Oasis.png" />
+	  <None Remove="Images\Locations\-1,-1.png" />
+	  <None Remove="Images\Locations\-1,0.png" />
+	  <None Remove="Images\Locations\-2,-1.png" />
+	  <None Remove="Images\Locations\-2,0.png" />
+	  <None Remove="Images\Locations\-3,-1.png" />
+	  <None Remove="Images\Locations\-3,0.png" />
+	  <None Remove="Images\Locations\0,-1.png" />
+	  <None Remove="Images\Locations\0,0.png" />
+	  <None Remove="Images\Locations\1,-1.png" />
+	  <None Remove="Images\Locations\1,0.png" />
+	  <None Remove="Images\Locations\2,-1.png" />
+	  <None Remove="Images\Locations\2,0.png" />
+	  <None Remove="Images\Locations\3,-1.png" />
+	  <None Remove="Images\Locations\3,0.png" />
+	  <None Remove="Images\Locations\4,-1.png" />
+	  <None Remove="Images\Locations\4,0.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Resource Include="Images\Locations\Firecamp.png" />
-	  <Resource Include="Images\Locations\Oasis.png" />
+	  <Resource Include="Images\Locations\-1,-1.png" />
+	  <Resource Include="Images\Locations\-1,0.png" />
+	  <Resource Include="Images\Locations\-2,-1.png" />
+	  <Resource Include="Images\Locations\-2,0.png" />
+	  <Resource Include="Images\Locations\-3,-1.png" />
+	  <Resource Include="Images\Locations\-3,0.png" />
+	  <Resource Include="Images\Locations\0,-1.png" />
+	  <Resource Include="Images\Locations\0,0.png" />
+	  <Resource Include="Images\Locations\1,-1.png" />
+	  <Resource Include="Images\Locations\1,0.png" />
+	  <Resource Include="Images\Locations\2,-1.png" />
+	  <Resource Include="Images\Locations\2,0.png" />
+	  <Resource Include="Images\Locations\3,-1.png" />
+	  <Resource Include="Images\Locations\3,0.png" />
+	  <Resource Include="Images\Locations\4,-1.png" />
+	  <Resource Include="Images\Locations\4,0.png" />
 	</ItemGroup>
 
 </Project>

@@ -23,6 +23,10 @@ namespace Engine.Controllers.Session
 			{
 				_location = value;
 				OnPropertyChanged(nameof(Location));
+				OnPropertyChanged(nameof(HasLocationToNorth));
+				OnPropertyChanged(nameof(HasLocationToEast));
+				OnPropertyChanged(nameof(HasLocationToSouth));
+				OnPropertyChanged(nameof(HasLocationToWest));
 			}
 		}
 

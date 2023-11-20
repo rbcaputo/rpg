@@ -28,9 +28,9 @@ namespace UI
 		}
 
 		// Movement controls
-		private void OnClick_MoveNorth(object sender, RoutedEventArgs e) { _session.MoveNorth(); }
-		private void OnClick_MoveEast(object sender, RoutedEventArgs e) { _session.MoveEast(); }
-		private void OnClick_MoveSouth(object sender, RoutedEventArgs e) { _session.MoveSouth(); }
-		private void OnClick_MoveWest(object sender, RoutedEventArgs e) { _session.MoveWest(); }
+		private void MoveNorth(object sender, RoutedEventArgs e) { _session.MoveNorth(); }
+		private void MoveEast(object sender, RoutedEventArgs e) { _session.MoveEast(); }
+		private void MoveSouth(object sender, RoutedEventArgs e) { _session.MoveSouth(); }
+		private void MoveWest(object sender, RoutedEventArgs e) { _session.MoveWest(); }
 	}
 }
