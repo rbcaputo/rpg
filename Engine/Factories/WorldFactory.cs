@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Factories
 {
-    internal static class WorldFactory
+	internal static class WorldFactory
 	{
 		internal static WorldModel GenerateWorld()
 		{
@@ -16,7 +16,10 @@ namespace Engine.Factories
 			world.AddLocation("Mountain range exit", "Mountain range exit", "pack://application:,,,/Engine;component/Images/Locations/-3,0.png", -3, 0);
 			world.AddLocation("Mountain range entrance", "Mountain range entrance", "pack://application:,,,/Engine;component/Images/Locations/-2,0.png", -2, 0);
 			world.AddLocation("Village", "Village", "pack://application:,,,/Engine;component/Images/Locations/-1,0.png", -1, 0);
+			
 			world.AddLocation("City", "Main city", "pack://application:,,,/Engine;component/Images/Locations/0,0.png", 0, 0);
+			world.GetLocationAt(0, 0).Quests.Add(QuestFactory.GetQuestByID(001));
+
 			world.AddLocation("River", "Main river", "pack://application:,,,/Engine;component/Images/Locations/1,0.png", 1, 0);
 			world.AddLocation("Forest entrance", "Forest entrance", "pack://application:,,,/Engine;component/Images/Locations/2,0.png", 2, 0);
 			world.AddLocation("Forest", "Forest", "pack://application:,,,/Engine;component/Images/Locations/3,0.png", 3, 0);

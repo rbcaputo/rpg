@@ -1,5 +1,6 @@
 ﻿using Engine.Factories;
 using Engine.Models.General;
+using Engine.Models.Quests;
 using Engine.Shared;
 using System;
 using System.Collections.Generic;
@@ -28,10 +29,11 @@ namespace Engine.Controllers.Session
 				OnPropertyChanged(nameof(HasLocationToEast));
 				OnPropertyChanged(nameof(HasLocationToSouth));
 				OnPropertyChanged(nameof(HasLocationToWest));
+				AssignLocationQuest();
 			}
 		}
 
-		// Check world limits
+		// Get world limits
 		public bool HasLocationToNorth
 		{
 			get { return World.GetLocationAt(Location.XCoordinate, Location.YCoordinate + 1) != null; }
@@ -73,6 +75,12 @@ namespace Engine.Controllers.Session
 
 			// Current location
 			Location = World.GetLocationAt(0, 0);
+		}
+
+		// Quests handling
+		private void AssignLocationQuest()
+		{
+			foreach(QuestModel quest in Location.Quests) { if (!Player.Quests.Any(qst => qst.Quest.ID == quest.ID)) Player.Quests.Add(new QuestStatus(quest)); }
 		}
 
 		// Movement controls

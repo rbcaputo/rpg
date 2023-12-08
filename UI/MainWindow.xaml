@@ -81,7 +81,15 @@
 				<TabItem Header="Skills"/>
 
 				<!-- Character: Inventory tab -->
-				<TabItem Header="Inventory"/>
+				<TabItem Header="Inventory">
+					<DataGrid AutoGenerateColumns="False" ItemsSource="{ Binding Player.Inventory }" HeadersVisibility="Column" BorderBrush="Transparent">
+						<DataGrid.Columns>
+							<DataGridTextColumn Width="Auto" Header="Item" Binding="{ Binding Name }"/>
+							<DataGridTextColumn Width="Auto" Header="Type" Binding="{ Binding Category }"/>
+							<!-- TODO: item quantity column -->
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
 			</TabControl>
 
 			<!-- Character: Combat grid -->
@@ -127,7 +135,7 @@
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 			<Label Grid.Row="0" Grid.Column="0" Content="WORLD" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-			
+
 			<!-- Actions grid -->
 			<Grid Grid.Row="1" Grid.Column="1">
 				<Grid.RowDefinitions>
@@ -136,15 +144,14 @@
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="150px"/>
 				</Grid.ColumnDefinitions>
 				<Label Grid.Row="0" Grid.ColumnSpan="2" Content="ACTIONS" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-				
+
 				<!-- Movement grid -->
 				<Grid Grid.Row="1" Grid.Column="1">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="*"/>
 						<RowDefinition Height="*"/>
 						<RowDefinition Height="*"/>
 						<RowDefinition Height="*"/>
@@ -157,17 +164,13 @@
 						<ColumnDefinition Width="*"/>
 						<ColumnDefinition Width="*"/>
 						<ColumnDefinition Width="*"/>
-						<ColumnDefinition Width="*"/>
-						<ColumnDefinition Width="*"/>
-						<ColumnDefinition Width="*"/>
-						<ColumnDefinition Width="*"/>
 					</Grid.ColumnDefinitions>
-					<Label Grid.Row="0" Grid.ColumnSpan="7" Content="MOVEMENT" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+					<Label Grid.RowSpan="3" Grid.ColumnSpan="7" Content="MOVEMENT" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
 
-					<Button Grid.Row="3" Grid.Column="3" Content="N" Click="MoveNorth" IsEnabled="{ Binding HasLocationToNorth }"/>
-					<Button Grid.Row="4" Grid.Column="4" Content="E" Click="MoveEast" IsEnabled="{ Binding HasLocationToEast }"/>
-					<Button Grid.Row="5" Grid.Column="3" Content="S" Click="MoveSouth" IsEnabled="{ Binding HasLocationToSouth }"/>
-					<Button Grid.Row="4" Grid.Column="2" Content="W" Click="MoveWest" IsEnabled="{ Binding HasLocationToWest }"/>
+					<Button Grid.Row="3" Grid.Column="1" Width="40px" Height="40px" Content="N" Click="MoveNorth" IsEnabled="{ Binding HasLocationToNorth }" VerticalAlignment="Bottom"/>
+					<Button Grid.Row="4" Grid.Column="2" Width="40px" Height="40px" Content="E" Click="MoveEast" IsEnabled="{ Binding HasLocationToEast }" HorizontalAlignment="Left"/>
+					<Button Grid.Row="5" Grid.Column="1" Width="40px" Height="40px" Content="S" Click="MoveSouth" IsEnabled="{ Binding HasLocationToSouth }" VerticalAlignment="Top"/>
+					<Button Grid.Row="4" Grid.Column="0" Width="40px" Height="40px" Content="W" Click="MoveWest" IsEnabled="{ Binding HasLocationToWest }" HorizontalAlignment="Right"/>
 				</Grid>
 			</Grid>
 		</Grid>
@@ -180,10 +183,11 @@
 				<RowDefinition Height="250px"/>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
 			<Label Grid.Row="0" Grid.Column="0" Content="LOCATION" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 			<TextBlock Grid.Row="1" Grid.Column="0" Text="{ Binding Location.Name }" HorizontalAlignment="Center"/>
-			<Image Grid.Row="2" Grid.Column="0" Source="{ Binding Location.Image }" Height="250" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			<Image Grid.Row="2" Grid.Column="0" Source="{ Binding Location.Image }" Height="250px" Width="250px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 			<TextBlock Grid.Row="3" Grid.Column="0" Text="{ Binding Location.Description }" HorizontalAlignment="Center"/>
 
 			<!-- Portrait grid -->
@@ -195,6 +199,17 @@
 				</Grid.RowDefinitions>
 				<Label Grid.Row="0" Grid.Column="0" Content="PORTRAIT" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 			</Grid>
+			
+			<!-- Quests grid -->
+			<Grid Grid.Row="5" Grid.Column="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Label Grid.Row="0" Grid.Column="0" Content="QUESTS" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+				
+			</Grid>
+
 		</Grid>
 	</Grid>
 </Window>

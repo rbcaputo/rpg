@@ -1,6 +1,9 @@
-﻿using Engine.Shared;
+﻿using Engine.Models.Items;
+using Engine.Models.Quests;
+using Engine.Shared;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -26,6 +29,9 @@ namespace Engine.Models.General
 		private int _currentLife;
 		private int _maxMana;
 		private int _currentMana;
+
+		private int _maxWeight;
+		private int _currentWeight;
 
 		// General
 		public string Name { get; set; } = string.Empty;
@@ -152,5 +158,29 @@ namespace Engine.Models.General
 				OnPropertyChanged(nameof(CurrentMana));
 			}
 		}
+
+		// Inventory
+		public int MaxWeight
+		{
+			get { return _maxWeight; }
+			set
+			{
+				_maxWeight = value;
+				OnPropertyChanged(nameof(MaxWeight));
+			}
+		}
+		public int CurrentWeight
+		{
+			get { return _currentWeight; }
+			set
+			{
+				_currentWeight = value;
+				OnPropertyChanged(nameof(CurrentWeight));
+			}
+		}
+		public ObservableCollection<ItemModel> Inventory { get; set; } = new();
+
+		// Quests
+		public ObservableCollection<QuestStatus> Quests { get; set; } = new();
 	}
 }
